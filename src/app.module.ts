@@ -7,10 +7,12 @@ import { PokemonModule } from './pokemon/pokemon.module';
 import { CommonModule } from './common/common.module';
 import { SeedModule } from './seed/seed.module';
 import { EvnConfig } from './config/app.config';
+import { JoiValidationSchema } from './config/joi.validation';
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [EvnConfig],
+      validationSchema: JoiValidationSchema,
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
